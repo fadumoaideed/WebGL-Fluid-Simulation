@@ -10,7 +10,6 @@ function main({ contextID, glslVersion }) {
     REPEAT,
     NEAREST,
     LINEAR,
-    renderSignedAmplitudeProgram,
   } = GPUIO;
 
   const PARAMS = {
@@ -38,8 +37,6 @@ function main({ contextID, glslVersion }) {
   // We are storing abs position (2 components) and displacements (2 components) in this buffer.
   // This decreases error when rendering to half float.
   const POSITION_NUM_COMPONENTS = 4;
-
-  let shouldSavePNG = false;
 
   const canvas = document.createElement('canvas');
   document.body.appendChild(canvas);
@@ -504,11 +501,6 @@ function main({ contextID, glslVersion }) {
       program: renderTrails,
       input: trailState,
     });
-
-    if (shouldSavePNG) {
-      composer.savePNG({ filename: `fluid` });
-      shouldSavePNG = false;
-    }
   }
 
   // During touch, copy data from noise over to state.
