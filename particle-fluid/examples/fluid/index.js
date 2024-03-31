@@ -426,7 +426,7 @@ function main({ contextID, glslVersion }) {
 			uniform sampler2D u_trailState;
 			out vec4 out_color;
 			void main() {
-				vec3 background = vec3(0.98, 0.922, 0.843);
+				vec3 background =  vec3(0.,0.337,0.467);
 				vec3 particle = vec3(0, 0, 0.2);
 				out_color = vec4(mix(background, particle, texture(u_trailState, v_uv).x), 1);
 			}
@@ -579,8 +579,6 @@ function main({ contextID, glslVersion }) {
   canvas.addEventListener('pointerup', onPointerStop);
   canvas.addEventListener('pointerout', onPointerStop);
   canvas.addEventListener('pointercancel', onPointerStop);
-
-  const ui = [];
 
   // Resize if needed.
   window.addEventListener('resize', onResize);

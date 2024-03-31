@@ -3,20 +3,6 @@
   const { GLSL1, GLSL3, WEBGL1, WEBGL2, isWebGL2Supported } = GPUIO;
 
   // https://github.com/amandaghassaei/canvas-capture
-  const RECORD_FPS = 60;
-
-  // Init an overlay to prevent click events from bubbling through
-  // modal to gui or canvas.
-  // Show/hide overlay when modal is opened/closed.
-  const overlay = document.createElement('div');
-  overlay.id = 'touchOverlay';
-  overlay.style.width = '100%';
-  overlay.style.height = '100%';
-  overlay.style.opacity = 0;
-  overlay.style.position = 'absolute';
-  overlay.style['z-index'] = 1;
-  overlay.style.display = 'none';
-  document.body.append(overlay);
 
   const webGLSettings = {
     webGLVersion: isWebGL2Supported() ? 'WebGL 2' : 'WebGL 1',
